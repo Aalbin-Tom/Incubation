@@ -1,0 +1,8 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.navbar{
+    background: rgb(20, 20, 20);
+    height: 52px;
+}
