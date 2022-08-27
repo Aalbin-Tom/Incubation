@@ -24,6 +24,43 @@ function Application() {
     },[reducerValue])
     
    const  approve=(_id)=>{
+    console.log(_id);
+
+      try {
+   
+      Swal.fire({
+        title:"Are you sure to Approve",
+        showDenyButton: true,
+        confirmButtonText: "yes",
+        denyButtonText: "No",
+        customClass: {
+          actions: "my-actions",
+          confirmButton: "order-2",
+          denyButton: "order-3",
+        },
+      }).then(async (result) => {
+        console.log(result);
+        if (result.isConfirmed) {
+          console.log(_id);
+          const { data } = await axios.post(
+            "/admin/approve",
+
+            {
+              _id: _id,
+            }
+          );
+          console.log(data);
+          forceUpdate()
+        }
+      });
+    } catch (error) {
+
+    }
+
+   };
+
+const  decline=(_id)=>{
+  
 
       try {
    
@@ -39,9 +76,9 @@ function Application() {
         },
       }).then(async (result) => {
         if (result.isConfirmed) {
+          console.log(_id);
           const { data } = await axios.post(
-            "/admin/approve",
-
+            "/admin/decline",
             {
               _id: _id,
             }
@@ -51,13 +88,10 @@ function Application() {
         }
       });
     } catch (error) {
-      
+
     }
-
    };
-
-const  decline=(_id)=>{
-   };
+    
  
 
 
@@ -99,7 +133,6 @@ const  decline=(_id)=>{
 
               <TableCell align="center"> 
                 <button style={{background:"#4af379"}}  onClick={()=>{approve(obj._id) }}>  <TiTick/></button>
-              
                </TableCell>
             </TableRow>)
 })}

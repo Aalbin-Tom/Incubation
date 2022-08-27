@@ -1,20 +1,13 @@
-import {
-    FaTh,
-
-}  from "react-icons/fa" 
+import {MdDashboard}  from "react-icons/md" 
 
 
 export const SidebarData=[
     {
         title:"Application List",
         path:   "applicationlist", 
-        icon:<FaTh/>,
+        icon:<MdDashboard/>,
     },
-    {
-        title:"Manage Users",
-        path:   "manageusers", 
-        icon:<FaTh/>,
-    },
+   
     {
         title:"Pending Application",
         path:   "application", 
@@ -26,13 +19,18 @@ export const SidebarData=[
         icon:"",
     },
     {
-        title:"Record Track",
-        path:   "recordTrack ", 
+        title:"Approved List",
+        path:   "approved", 
         icon:"",
     },
     {
-        title:"Shedule Event",
-        path:"sheduleEvent", 
+        title:"Declined List",
+        path:"declinedlist", 
+        icon:"",
+    },
+     {
+        title:"Manage Users",
+        path:   "manageusers", 
         icon:"",
     },
 ]

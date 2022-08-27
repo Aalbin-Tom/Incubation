@@ -1,40 +1,37 @@
 const mongoose =require ("mongoose")
 
-
-const ticketSchema = mongoose.Schema(
+const roomsSchema = mongoose.Schema(
     {
         name:{
             type:String,
-            requried:true
+        },
+        number:{
+           type:Number,
+           required:true , 
         },
         email: {
-            type: String,
-            required: true,
+            type: String, 
         },
         place: {
             type: String,
-            required: true,
         },
         address: {
             type: String,
-            required: true,
         },
         phone: {
             type: Number,
-            required: true,
         },
         company: {
             type: String,
-            required: true,
         },
         status: {
-            type: String,
+            type: Boolean,
             required: true,
-            default:"pending"
+            default:false
         },
     }
 )
 
 
-const Ticket = mongoose.model("Ticket", ticketSchema);
-module.exports = Ticket;
+const rooms = mongoose.model("Rooms", roomsSchema);
+module.exports = rooms;

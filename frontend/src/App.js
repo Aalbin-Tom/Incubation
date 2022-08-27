@@ -8,8 +8,8 @@ import AdminHome from './Pages/admin/AdminHome';
 import Applicationlist from './Component/Admin/ApplicationList';
 import Application from './Component/Admin/Applicatioin';
 import BookSLot from './Component/Admin/BookSLot';
-import Recordtrack from './Component/Admin/Recordtrack';
-import SheduleEvent from './Component/Admin/SheduleEvent';
+import ApprovedList from './Component/Admin/ApprovedList';
+import DeclinedList from './Component/Admin/DeclinedList';
 import ManageUsers from './Component/Admin/ManageUsers';
 import Addcompany from './Pages/user/Addcompany';
 
@@ -26,8 +26,8 @@ function App() {
               <Route  path='applicationlist' element={<Applicationlist/>} />
               <Route  path='application' element={<Application/>} />
               <Route  path='bookSlots' element={<BookSLot/>} />
-              <Route  path='recordTrack' element={<Recordtrack/>} />
-              <Route  path='sheduleEvent' element={<SheduleEvent/>} />
+              <Route  path='approved' element={<ApprovedList/>} />
+              <Route  path='declinedlist' element={<DeclinedList/>} />
               <Route  path='manageusers' element={<ManageUsers/>} />
           </Route>
           <Route  path='/add-company' element={<Addcompany/>} />

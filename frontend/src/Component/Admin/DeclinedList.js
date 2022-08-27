@@ -1,14 +1,13 @@
-import { TableBody, TableCell, TableContainer, TableHead,Table, TableRow, Paper} from '@mui/material'
-import axios from 'axios'
+import { Paper, TableBody, TableCell, TableContainer, TableHead, TableRow, Table} from '@mui/material';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-
-function Applicationlist() {
-   const[Company,setCompany] = useState([])
+function DeclinedList() {
+ const[Company,setCompany] = useState([])
 
 
       const companies=(async()=>{
-       let companydetail = await axios.get('/admin/applicationlist')
+       let companydetail = await axios.get('/admin/declinedlist')
        console.log(companydetail.data.companys);
        setCompany(companydetail.data.companys)
       }) 
@@ -19,13 +18,9 @@ function Applicationlist() {
     
     },[])
 
-    const showcompany=(_id)=>{
-
-    }
-
   return (  
     <div >
-      <h1 style={{color:"black", paddingLeft:"6rem",fontSize:"2.3rem"}}>APLICATION LIST</h1>
+      <h1 style={{color:"black", paddingLeft:"6rem",fontSize:"2.3rem"}}>DECLINED LIST</h1>
 
         <TableContainer component={Paper}>
       <Table sx={{ width: "100%" }} size="small" aria-label="a dense table" >
@@ -36,7 +31,6 @@ function Applicationlist() {
             <TableCell sx={{fontSize:'17px', fontWeight:"bold"}}  align="center">User Name</TableCell>
             <TableCell sx={{fontSize:'17px', fontWeight:"bold"}} align="center">Email</TableCell>
             <TableCell sx={{fontSize:'17px', fontWeight:"bold"}} align="center">Address</TableCell>
-            <TableCell sx={{fontSize:'17px', fontWeight:"bold"}} align="center">View</TableCell>
             <TableCell sx={{fontSize:'17px', fontWeight:"bold"}} align="center">Phone</TableCell>
             <TableCell sx={{fontSize:'17px', fontWeight:"bold"}} align="center">Status</TableCell>
           </TableRow>
@@ -56,9 +50,8 @@ function Applicationlist() {
                 {users.email}
               </TableCell>
               <TableCell align="center"> {users.address} </TableCell>
-              <TableCell align="center"> <button onClick={()=>{showcompany(users._id)}}> view</button> </TableCell>
               <TableCell  align="center"> {users.phone} </TableCell>
-              <TableCell style={{background:"red"}}  align="center"> {users.status} </TableCell>
+              <TableCell style={{background:"rgb(207 99 106)"}}  align="center"> {users.status} </TableCell>
             </TableRow>)
 })}
         </TableBody>
@@ -69,4 +62,5 @@ function Applicationlist() {
   )
 }
 
-export default Applicationlist
+
+export default DeclinedList
